@@ -1,5 +1,2 @@
 #Estos archivos seran ignorados al momento de hacer los commits
-build/
-nbproject/
-build.xml
-manifest.mf
+
