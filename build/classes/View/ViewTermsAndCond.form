@@ -52,11 +52,11 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jButton1" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="btnContinuar" min="-2" pref="118" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="btnNoAceptar" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="chbTerminos" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="256" max="-2" attributes="0"/>
@@ -77,11 +77,11 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbTerminos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="btnContinuar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="btnNoAceptar" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jLabel1" min="-2" pref="72" max="-2" attributes="0"/>
@@ -139,14 +139,14 @@
                       <Font name="Segoe UI" size="10" style="0"/>
                     </Property>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="TERMINOS Y CONDICIONES&#xa;  A. PROHIBIDO SU VENTA O DISTRIBUCION  SIN AUTORIZACION DE LA GEEKIPEDIA DE ERNESTO&#xa;  B. PROHIBIDO LA ALTERACION DEL CODIGO FUENTE O DISE&#xd1;O DE LAS INTERFACES&#xa;  C. LA GEEKIPEDIA DE ERNESTO NO SE HACE RESPONSABLE DEL MAL USO DE ESTE SOFTWARE&#xa;&#xa;LOS ACUERDOS LEGALES EXPUESTOS A CONTINUACION RIGEN EL USO QUE USTED HAGA DE ESTE&#xa;SOFTWARE (LA GEEKIPEDIA DE ERNESTO Y EL AUTOR ERNESTO), NO SE RESPONSABILIZAN DEL USO&#xa;QUE USTED HAGA CON ESTE SOFTWARE Y SUS SERVICIOS PARA ACEPTAR ESTOS TERMINOS HAGA &#xa;CLIC EN (ACEPTO), SI USTED NO ACEPTA ESTOS TERMINOS, HAGA CLIC EN (NO ACEPTO) Y NO &#xa;UTILICE ESTE SOFTWARE &#xa;&#xa;PARA MAYOR INFORMACION SOBRE NUESTROS PRODUCTOS O SERVICIOS POR FAVOR VISITE&#xa;https://www.youtube.com/@LaGeekipediaDeErnesto"/>
+                    <Property name="text" type="java.lang.String" value="TERMINOS Y CONDICIONES&#xa;  A. PROHIBIDO SU VENTA O DISTRIBUCION  SIN AUTORIZACION DE LA GEEKIPEDIA DE ERNESTO&#xa;  B. PROHIBIDO LA ALTERACION DEL CODIGO FUENTE O DISE&#xd1;O DE LAS INTERFACES&#xa;  C. LA GEEKIPEDIA DE ERNESTO NO SE HACE RESPONSABLE DEL MAL USO DE ESTE SOFTWARE&#xa;&#xa;LOS ACUERDOS LEGALES EXPUESTOS A CONTINUACION RIGEN EL USO QUE USTED HAGA DE ESTE&#xa;SOFTWARE (LA GEEKIPEDIA DE ERNESTO Y EL AUTOR ERNESTO), NO SE RESPONSABILIZAN DEL USO&#xa;QUE USTED HAGA CON ESTE SOFTWARE Y SUS SERVICIOS PARA ACEPTAR ESTOS TERMINOS HAGA &#xa;CLIC EN (ACEPTO), SI USTED NO ACEPTA ESTOS TERMINOS, HAGA CLIC EN (NO ACEPTO) Y NO &#xa;UTILICE ESTE SOFTWARE &#xa;&#xa;PARA MAYOR INFORMACION SOBRE NUESTROS PRODUCTOS O SERVICIOS POR FAVOR VISITE&#xa;https://www.youtube.com/@LaGeekipediaDeErnesto&#xa;&#xa;GITHUB DEL DESARROLLADOR&#xa;https://github.com/Johao-dev"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+        <Component class="javax.swing.JCheckBox" name="chbTerminos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semibold" size="14" style="1"/>
@@ -156,16 +156,25 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Yo acepto los terminos y condiciones"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnContinuar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Continuar"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="btnNoAceptar">
           <Properties>
             <Property name="text" type="java.lang.String" value="No Acepto"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>

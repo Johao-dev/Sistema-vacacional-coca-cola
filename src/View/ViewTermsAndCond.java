@@ -30,9 +30,9 @@ public class ViewTermsAndCond extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        chbTerminos = new javax.swing.JCheckBox();
+        btnContinuar = new javax.swing.JButton();
+        btnNoAceptar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,7 +47,7 @@ public class ViewTermsAndCond extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("TERMINOS Y CONDICIONES\n  A. PROHIBIDO SU VENTA O DISTRIBUCION  SIN AUTORIZACION DE LA GEEKIPEDIA DE ERNESTO\n  B. PROHIBIDO LA ALTERACION DEL CODIGO FUENTE O DISEÑO DE LAS INTERFACES\n  C. LA GEEKIPEDIA DE ERNESTO NO SE HACE RESPONSABLE DEL MAL USO DE ESTE SOFTWARE\n\nLOS ACUERDOS LEGALES EXPUESTOS A CONTINUACION RIGEN EL USO QUE USTED HAGA DE ESTE\nSOFTWARE (LA GEEKIPEDIA DE ERNESTO Y EL AUTOR ERNESTO), NO SE RESPONSABILIZAN DEL USO\nQUE USTED HAGA CON ESTE SOFTWARE Y SUS SERVICIOS PARA ACEPTAR ESTOS TERMINOS HAGA \nCLIC EN (ACEPTO), SI USTED NO ACEPTA ESTOS TERMINOS, HAGA CLIC EN (NO ACEPTO) Y NO \nUTILICE ESTE SOFTWARE \n\nPARA MAYOR INFORMACION SOBRE NUESTROS PRODUCTOS O SERVICIOS POR FAVOR VISITE\nhttps://www.youtube.com/@LaGeekipediaDeErnesto");
+        jTextArea1.setText("TERMINOS Y CONDICIONES\n  A. PROHIBIDO SU VENTA O DISTRIBUCION  SIN AUTORIZACION DE LA GEEKIPEDIA DE ERNESTO\n  B. PROHIBIDO LA ALTERACION DEL CODIGO FUENTE O DISEÑO DE LAS INTERFACES\n  C. LA GEEKIPEDIA DE ERNESTO NO SE HACE RESPONSABLE DEL MAL USO DE ESTE SOFTWARE\n\nLOS ACUERDOS LEGALES EXPUESTOS A CONTINUACION RIGEN EL USO QUE USTED HAGA DE ESTE\nSOFTWARE (LA GEEKIPEDIA DE ERNESTO Y EL AUTOR ERNESTO), NO SE RESPONSABILIZAN DEL USO\nQUE USTED HAGA CON ESTE SOFTWARE Y SUS SERVICIOS PARA ACEPTAR ESTOS TERMINOS HAGA \nCLIC EN (ACEPTO), SI USTED NO ACEPTA ESTOS TERMINOS, HAGA CLIC EN (NO ACEPTO) Y NO \nUTILICE ESTE SOFTWARE \n\nPARA MAYOR INFORMACION SOBRE NUESTROS PRODUCTOS O SERVICIOS POR FAVOR VISITE\nhttps://www.youtube.com/@LaGeekipediaDeErnesto\n\nGITHUB DEL DESARROLLADOR\nhttps://github.com/Johao-dev");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -67,13 +67,13 @@ public class ViewTermsAndCond extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Yo acepto los terminos y condiciones");
+        chbTerminos.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        chbTerminos.setForeground(new java.awt.Color(255, 255, 255));
+        chbTerminos.setText("Yo acepto los terminos y condiciones");
 
-        jButton1.setText("Continuar");
+        btnContinuar.setText("Continuar");
 
-        jButton2.setText("No Acepto");
+        btnNoAceptar.setText("No Acepto");
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Desktop\\Proyecto - Curso JAVA #41\\Empaquetado\\images\\logo-coca.png")); // NOI18N
 
@@ -85,10 +85,10 @@ public class ViewTermsAndCond extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jCheckBox1))
+                        .addComponent(btnNoAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chbTerminos))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -105,11 +105,11 @@ public class ViewTermsAndCond extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
+                        .addComponent(chbTerminos)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNoAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -167,9 +167,9 @@ public class ViewTermsAndCond extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
+    public javax.swing.JButton btnContinuar;
+    public javax.swing.JButton btnNoAceptar;
+    public javax.swing.JCheckBox chbTerminos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
