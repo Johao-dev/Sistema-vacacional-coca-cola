@@ -1,20 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package sistema_cocacola_mvc;
 
-/**
- *
- * @author ASUS
- */
+import Model.*;
+import View.*;
+import Controller.*;
+
 public class Sistema_CocaCola_MVC {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Trabajador modeloTrabajador = new Trabajador();
+        ViewBienvenida vistaBienvenida = new ViewBienvenida();
+        ControllerBienvenida ctrlBienvenida = new ControllerBienvenida(modeloTrabajador, vistaBienvenida);
+        vistaBienvenida.setVisible(true);
+        vistaBienvenida.setController(ctrlBienvenida);
     }
     
 }
