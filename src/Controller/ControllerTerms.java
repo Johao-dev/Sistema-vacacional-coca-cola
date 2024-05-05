@@ -27,7 +27,7 @@ public class ControllerTerms {
 	this.vistaTerminos.btnNoAceptar.addActionListener(evt -> btnNoAceptarActionPerformed(evt));
 	this.vistaTerminos.chbTerminos.addItemListener(evt -> chbTerminosStateChanged(evt));
     }
-
+    
     private void btnContinuarActionPerformed(ActionEvent evt) {
         this.vistaTerminos.dispose();
         this.vistaPrincipal.setVisible(true);
