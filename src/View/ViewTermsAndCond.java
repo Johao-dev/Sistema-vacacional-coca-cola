@@ -4,15 +4,22 @@
  */
 package View;
 
+import Controller.ControllerTerms;
 /**
  *
  * @author ASUS
  */
 public class ViewTermsAndCond extends javax.swing.JFrame {
 
+    ControllerTerms ctrl;
     /**
      * Creates new form ViewTermsAndCond
      */
+    
+    public void setController(ControllerTerms controlador) {
+        this.ctrl = controlador;
+    }
+    
     public ViewTermsAndCond() {
         initComponents();
     }
@@ -67,6 +74,7 @@ public class ViewTermsAndCond extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        chbTerminos.setBackground(new java.awt.Color(255, 51, 51));
         chbTerminos.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         chbTerminos.setForeground(new java.awt.Color(255, 255, 255));
         chbTerminos.setText("Yo acepto los terminos y condiciones");

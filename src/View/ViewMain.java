@@ -238,6 +238,7 @@ public class ViewMain extends javax.swing.JFrame {
         );
 
         menuBarra.setBackground(new java.awt.Color(255, 0, 0));
+        menuBarra.setForeground(new java.awt.Color(255, 255, 255));
 
         menuOpciones.setText("Opciones");
 

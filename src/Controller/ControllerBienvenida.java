@@ -13,9 +13,10 @@ public class ControllerBienvenida implements ActionListener {
     private ViewBienvenida vistaBienvenida;
     private ViewTermsAndCond vistaTerminosYCondiciones;
     
-    public ControllerBienvenida(Trabajador modeloTrabajador, ViewBienvenida vistaBienvenida) {
+    public ControllerBienvenida(Trabajador modeloTrabajador, ViewBienvenida vistaBienvenida, ViewTermsAndCond vistaTerminos) {
         this.modeloTrabajador = modeloTrabajador;
         this.vistaBienvenida = vistaBienvenida;
+        this.vistaTerminosYCondiciones = vistaTerminos;
         configListener();
     }
     
@@ -26,8 +27,13 @@ public class ControllerBienvenida implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vistaBienvenida.btningresar) {
-            if (this.vistaBienvenida.txtnombre.getText().isEmpty())
-            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            if (this.vistaBienvenida.txtnombre.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar su nombre.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            } else {
+                this.modeloTrabajador.setNombres(this.vistaBienvenida.txtnombre.getText());
+                this.vistaBienvenida.dispose();
+                this.vistaTerminosYCondiciones.setVisible(true);
+            }
         }
     }
 }
