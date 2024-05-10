@@ -14,6 +14,7 @@ public class ViewTermsAndCond extends javax.swing.JFrame {
     ControllerTerms ctrl;
     /**
      * Creates new form ViewTermsAndCond
+     * @param controlador
      */
     
     public void setController(ControllerTerms controlador) {
