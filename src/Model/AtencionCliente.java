@@ -7,10 +7,14 @@ public class AtencionCliente extends Departamento implements DiasVacaciones {
     private String masSieteAños;
    
     @Override
-    public void diasDeVacaciones() {
+    public final void diasDeVacaciones() {
         this.unAño = "6 dias de vacaciones.";
         this.dosAñosSeisAños = "10 dias de vacaciones.";
         this.masSieteAños = "14 dias de vacaciones.";
+    }
+    
+    public AtencionCliente() {
+        diasDeVacaciones();
     }
 
     @Override

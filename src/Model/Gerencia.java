@@ -7,12 +7,16 @@ public class Gerencia extends Departamento implements DiasVacaciones {
     private String masSieteAños;
    
     @Override
-    public void diasDeVacaciones() {
+    public final void diasDeVacaciones() {
         this.unAño = "10 dias de vacaciones.";
         this.dosAñosSeisAños = "20 dias de vacaciones.";
         this.masSieteAños = "30 dias de vacaciones.";
     }
 
+    public Gerencia() {
+        diasDeVacaciones();
+    }
+    
     @Override
     public String getUnAño() {
         return this.unAño;

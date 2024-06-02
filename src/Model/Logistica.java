@@ -6,12 +6,16 @@ public class Logistica extends Departamento implements DiasVacaciones {
     private String masSieteAños;
    
     @Override
-    public void diasDeVacaciones() {
+    public final void diasDeVacaciones() {
         this.unAño = "7 dias de vacaciones.";
         this.dosAñosSeisAños = "15 dias de vacaciones.";
         this.masSieteAños = "20 dias de vacaciones.";
     }
 
+    public Logistica() {
+        diasDeVacaciones();
+    }
+    
     @Override
     public String getUnAño() {
         return this.unAño;

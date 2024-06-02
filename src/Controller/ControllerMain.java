@@ -8,13 +8,20 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class ControllerMain {
+
     Trabajador modelTrabajador;
     AtencionCliente modelCliente;
     Logistica modelLogistica;
     Gerencia modelGerencia;
     ViewMain vistaPrincipal;
     ViewBienvenida vistaBienvenida;
-    
+
+    String nombres;
+    String apellidoPaterno;
+    String apellidoMaterno;
+    String departamentoSeleccionado;
+    String antiguedadSeleccionada;
+
     public ControllerMain(Trabajador tr, AtencionCliente cliente, Logistica logistica, Gerencia gerencia, ViewMain main, ViewBienvenida wel) {
         this.modelTrabajador = tr;
         this.modelCliente = cliente;
@@ -24,9 +31,9 @@ public class ControllerMain {
         this.vistaBienvenida = wel;
         configListeners();
     }
-    
+
     private void configListeners() {
-        //LIstener de la barra de menu
+        //configurando listener de cada opcion del menu
         this.vistaPrincipal.menuOpcionesFondoPredeterminado.addActionListener(evt -> fondoActionPerformed(evt));
         this.vistaPrincipal.menuOpcionesFondoOscuro.addActionListener(evt -> fondoActionPerformed(evt));
         this.vistaPrincipal.menuOpcionesNuevo.addActionListener(evt -> opcionNuevoActionPerformed(evt));
@@ -34,12 +41,8 @@ public class ControllerMain {
         this.vistaPrincipal.menuCalcularVacaciones.addActionListener(evt -> calcularVacacionesActionPerformed(evt));
         this.vistaPrincipal.menuAcercaDeProyecto.addActionListener(evt -> acercaDeActionPerformed(evt));
         this.vistaPrincipal.menuAcercaDeDesarrollador.addActionListener(evt -> acercaDeActionPerformed(evt));
-        
-        //Listeners para los JComboBox
-        this.vistaPrincipal.cbbDepartamento.addActionListener(evt -> servicioSelected(evt));
-        this.vistaPrincipal.cbbAntiguedad.addActionListener(evt -> departamentoSelected(evt));
     }
-    
+
     private void fondoActionPerformed(ActionEvent evt) {
         JMenuItem menuItem = (JMenuItem) evt.getSource();
         if (menuItem == this.vistaPrincipal.menuOpcionesFondoPredeterminado) {
@@ -52,23 +55,26 @@ public class ControllerMain {
             this.vistaPrincipal.panelDatosServicio.setBackground(Color.BLACK);
         }
     }
-    
+
     private void opcionCerrarSesionActionPerformed(ActionEvent evt) {
         this.vistaPrincipal.dispose();
         this.vistaBienvenida.setVisible(true);
     }
-    
+
     private void opcionNuevoActionPerformed(ActionEvent evt) {
         //datos personales
         this.vistaPrincipal.txtnombrePrincipal.setText(null);
         this.vistaPrincipal.txtApellidoMaterno.setText(null);
         this.vistaPrincipal.txtApellidoPaterno.setText(null);
-        
+
         //datos del servicio
         this.vistaPrincipal.cbbDepartamento.setSelectedIndex(0);
         this.vistaPrincipal.cbbAntiguedad.setSelectedIndex(0);
+        
+        //resultado
+        this.vistaPrincipal.txtResultados.setText(null);
     }
-    
+
     private void acercaDeActionPerformed(ActionEvent evt) {
         JMenuItem menuItem = (JMenuItem) evt.getSource();
         if (menuItem == this.vistaPrincipal.menuAcercaDeProyecto) {
@@ -77,32 +83,90 @@ public class ControllerMain {
             JOptionPane.showMessageDialog(null, "El desarrollador de este proyecto se llama Johao. Link de su Github: https://github.com/Johao-dev", "Desarrollador", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    
-    private void servicioSelected(ActionEvent evt) {
-         JComboBox<String> opcion = (JComboBox<String>) evt.getSource();
-         String opcionSeleccionada = (String) opcion.getSelectedItem();
-         this.modelTrabajador.setAñosServicio(opcionSeleccionada);
+
+    private void recogerDatos() {
+        this.nombres = this.vistaPrincipal.txtnombrePrincipal.getText();
+        this.apellidoPaterno = this.vistaPrincipal.txtApellidoPaterno.getText();
+        this.apellidoMaterno = this.vistaPrincipal.txtApellidoMaterno.getText();
+        this.departamentoSeleccionado = (String) this.vistaPrincipal.cbbDepartamento.getSelectedItem();
+        this.antiguedadSeleccionada = (String) this.vistaPrincipal.cbbAntiguedad.getSelectedItem();
     }
-    
-    private void departamentoSelected(ActionEvent evt) {
-        JComboBox<String> opcion = (JComboBox<String>) evt.getSource();
-         String opcionSeleccionada = (String) opcion.getSelectedItem();
-         this.modelTrabajador.setDepartamento(opcionSeleccionada);
+
+    private void enviarDatos() {
+        this.modelTrabajador.setNombres(this.nombres);
+        this.modelTrabajador.setApellidoPaterno(this.apellidoPaterno);
+        this.modelTrabajador.setApellidoMaterno(this.apellidoMaterno);
+        this.modelTrabajador.setAñosServicio(this.antiguedadSeleccionada);
+        this.modelTrabajador.setDepartamento(this.departamentoSeleccionado);
     }
-    
+
     private void calcularVacacionesActionPerformed(ActionEvent evt) {
-        //recogiendo los datos
-        String nombres = this.vistaPrincipal.txtnombrePrincipal.getText();
-        String apellidoPaterno = this.vistaPrincipal.txtApellidoPaterno.getText();
-        String apellidoMaterno = this.vistaPrincipal.txtApellidoMaterno.getText();
-        //String departamentoSeleccionado = (String) this.vistaPrincipal.cbbDepartamento.getSelectedItem();
-        //String antiguedadSeleccionado = (String) this.vistaPrincipal.cbbAntiguedad.getSelectedItem();
+        recogerDatos();
+        enviarDatos();
         
-        //enviando datos al modelo
-        this.modelTrabajador.setNombres(nombres);
-        this.modelTrabajador.setApellidoPaterno(apellidoPaterno);
-        this.modelTrabajador.setApellidoMaterno(apellidoMaterno);
-        //this.modelTrabajador.setAñosServicio(antiguedadSeleccionado);
-        //this.modelTrabajador.setDepartamento(departamentoSeleccionado);
+        if (this.modelTrabajador.getDepartamento().equalsIgnoreCase("Atencion al cliente")) {
+            esAtencionAlCliente(this.modelTrabajador.getAñosServicio());
+        } else if (this.modelTrabajador.getDepartamento().equalsIgnoreCase("Logistica")) {
+            esLogistica(this.modelTrabajador.getAñosServicio());
+        } else if (this.modelTrabajador.getDepartamento().equalsIgnoreCase("Gerencia")) {
+            esGerencia(this.modelTrabajador.getAñosServicio());
+        }
+    }
+    
+    private void esAtencionAlCliente(String servicio) {
+        if (servicio.equalsIgnoreCase("1 año de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelCliente.getUnAño());
+        } else if (servicio.equalsIgnoreCase("2 a 6 años de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelCliente.getDosAñosSeisAños());
+        } else if (servicio.equalsIgnoreCase("7 años a mas de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelCliente.getMasDeSieteAños());
+        }
+    }
+
+    private void esLogistica(String servicio) {
+        if (servicio.equalsIgnoreCase("1 año de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelLogistica.getUnAño());
+        } else if (servicio.equalsIgnoreCase("2 a 6 años de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelLogistica.getDosAñosSeisAños());
+        } else if (servicio.equalsIgnoreCase("7 años a mas de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelLogistica.getMasDeSieteAños());
+        }
+    }
+    
+    private void esGerencia(String servicio) {
+        if (servicio.equalsIgnoreCase("1 año de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelGerencia.getUnAño());
+        } else if (servicio.equalsIgnoreCase("2 a 6 años de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelGerencia.getDosAñosSeisAños());
+        } else if (servicio.equalsIgnoreCase("7 años a mas de servicio")) {
+            this.vistaPrincipal.txtResultados.setText("El empleado " + this.modelTrabajador.getNombres() +
+            " "+this.modelTrabajador.getApellidoPaterno() + " "+this.modelTrabajador.getApellidoMaterno() +
+            "\nque trabaja en el departamento de " + this.modelTrabajador.getDepartamento() +
+            "\ntiene derecho a " + this.modelGerencia.getMasDeSieteAños());
+        }
     }
 }

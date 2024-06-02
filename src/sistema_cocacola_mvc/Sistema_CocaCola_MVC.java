@@ -7,7 +7,7 @@ import Controller.*;
 public class Sistema_CocaCola_MVC {
 
     public static void main(String[] args) {
-        //Instancia del modelo trabajador
+        //Instanciando los modelos
         Trabajador modeloTrabajador = new Trabajador();
         AtencionCliente modelCliente = new AtencionCliente();
         Logistica modelLogistica = new Logistica();
@@ -23,7 +23,7 @@ public class Sistema_CocaCola_MVC {
         ControllerTerms ctrlTerminos = new ControllerTerms(vistaTerminos, vistaPrincipal, vistaBienvenida);
         ControllerMain ctrlMain = new ControllerMain(modeloTrabajador, modelCliente, modelLogistica, modelGerencia, vistaPrincipal, vistaBienvenida);
 
-        //Asignando controladores a sus vistas respectivas
+        //Asignando controladores a sus respectivas vistas
         vistaBienvenida.setController(ctrlBienvenida);
         vistaTerminos.setController(ctrlTerminos);
         vistaPrincipal.setController(ctrlMain);
