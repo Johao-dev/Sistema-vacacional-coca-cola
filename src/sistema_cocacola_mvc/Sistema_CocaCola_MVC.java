@@ -5,7 +5,7 @@ import View.*;
 import Controller.*;
 
 public class Sistema_CocaCola_MVC {
-    
+
     public static void main(String[] args) {
         //Instancia del modelo trabajador
         Trabajador modeloTrabajador = new Trabajador();
@@ -29,5 +29,5 @@ public class Sistema_CocaCola_MVC {
         vistaPrincipal.setController(ctrlMain);
         vistaBienvenida.setVisible(true);
     }
-    
+
 }

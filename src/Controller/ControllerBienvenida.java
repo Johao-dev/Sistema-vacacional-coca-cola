@@ -30,7 +30,6 @@ public class ControllerBienvenida implements ActionListener {
             if (this.vistaBienvenida.txtnombre.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Debe ingresar su nombre.", "Advertencia", JOptionPane.WARNING_MESSAGE);
             } else {
-                this.modeloTrabajador.setNombres(this.vistaBienvenida.txtnombre.getText());
                 this.vistaBienvenida.dispose();
                 this.vistaTerminosYCondiciones.setVisible(true);
             }

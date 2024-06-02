@@ -10,7 +10,7 @@ import Controller.ControllerBienvenida;
  * @author ASUS
  */
 public class ViewBienvenida extends javax.swing.JFrame {
-
+    
     ControllerBienvenida ctrl;
     /**
      * Creates new form ViewBienvenida

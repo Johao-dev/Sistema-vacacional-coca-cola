@@ -24,14 +24,14 @@ public class ControllerMain {
         this.vistaBienvenida = wel;
         configListeners();
     }
-
+    
     private void configListeners() {
         //LIstener de la barra de menu
         this.vistaPrincipal.menuOpcionesFondoPredeterminado.addActionListener(evt -> fondoActionPerformed(evt));
         this.vistaPrincipal.menuOpcionesFondoOscuro.addActionListener(evt -> fondoActionPerformed(evt));
         this.vistaPrincipal.menuOpcionesNuevo.addActionListener(evt -> opcionNuevoActionPerformed(evt));
         this.vistaPrincipal.menuOpcionesCerrarSesion.addActionListener(evt -> opcionCerrarSesionActionPerformed(evt));
-        this.vistaPrincipal.menuCalcularVacaciones.addActionListener(evt -> vacacionesActionPerformed(evt));
+        this.vistaPrincipal.menuCalcularVacaciones.addActionListener(evt -> calcularVacacionesActionPerformed(evt));
         this.vistaPrincipal.menuAcercaDeProyecto.addActionListener(evt -> acercaDeActionPerformed(evt));
         this.vistaPrincipal.menuAcercaDeDesarrollador.addActionListener(evt -> acercaDeActionPerformed(evt));
         
@@ -59,7 +59,14 @@ public class ControllerMain {
     }
     
     private void opcionNuevoActionPerformed(ActionEvent evt) {
+        //datos personales
+        this.vistaPrincipal.txtnombrePrincipal.setText(null);
+        this.vistaPrincipal.txtApellidoMaterno.setText(null);
+        this.vistaPrincipal.txtApellidoPaterno.setText(null);
         
+        //datos del servicio
+        this.vistaPrincipal.cbbDepartamento.setSelectedIndex(0);
+        this.vistaPrincipal.cbbAntiguedad.setSelectedIndex(0);
     }
     
     private void acercaDeActionPerformed(ActionEvent evt) {
@@ -75,17 +82,27 @@ public class ControllerMain {
          JComboBox<String> opcion = (JComboBox<String>) evt.getSource();
          String opcionSeleccionada = (String) opcion.getSelectedItem();
          this.modelTrabajador.setAñosServicio(opcionSeleccionada);
-         JOptionPane.showMessageDialog(null, "Seleccionaste " + opcionSeleccionada, "Seleccion", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private void departamentoSelected(ActionEvent evt) {
         JComboBox<String> opcion = (JComboBox<String>) evt.getSource();
          String opcionSeleccionada = (String) opcion.getSelectedItem();
          this.modelTrabajador.setDepartamento(opcionSeleccionada);
-         JOptionPane.showMessageDialog(null, "Seleccionaste " + opcionSeleccionada, "Seleccion", JOptionPane.INFORMATION_MESSAGE);
     }
     
-    private void vacacionesActionPerformed(ActionEvent evt) {
+    private void calcularVacacionesActionPerformed(ActionEvent evt) {
+        //recogiendo los datos
+        String nombres = this.vistaPrincipal.txtnombrePrincipal.getText();
+        String apellidoPaterno = this.vistaPrincipal.txtApellidoPaterno.getText();
+        String apellidoMaterno = this.vistaPrincipal.txtApellidoMaterno.getText();
+        //String departamentoSeleccionado = (String) this.vistaPrincipal.cbbDepartamento.getSelectedItem();
+        //String antiguedadSeleccionado = (String) this.vistaPrincipal.cbbAntiguedad.getSelectedItem();
         
+        //enviando datos al modelo
+        this.modelTrabajador.setNombres(nombres);
+        this.modelTrabajador.setApellidoPaterno(apellidoPaterno);
+        this.modelTrabajador.setApellidoMaterno(apellidoMaterno);
+        //this.modelTrabajador.setAñosServicio(antiguedadSeleccionado);
+        //this.modelTrabajador.setDepartamento(departamentoSeleccionado);
     }
 }

@@ -28,22 +28,22 @@ public class Trabajador {
     }
 
     public String getNombres() {
-        return nombres;
+        return this.nombres;
     }
 
     public String getApellidoPaterno() {
-        return apellidoPaterno;
+        return this.apellidoPaterno;
     }
 
     public String getApellidoMaterno() {
-        return apellidoMaterno;
+        return this.apellidoMaterno;
     }
 
     public String getAñosServicio() {
-        return añosServicio;
+        return this.añosServicio;
     }
 
     public String getDepartamento() {
-        return departamento;
+        return this.departamento;
     }
 }
